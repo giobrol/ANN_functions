@@ -1,29 +1,39 @@
 function [Xt, Xt_th] = Xt_M_ANN(Tf, Vf, Ef, Em)
-% This Function Calculate Xt from an composite laminae
+% This function compute Xt of a unidirectional composite
 %
-% Na entrada, Tf é a tensão última à tração da fibra (GPa), Vf a 
-% fracao volumetrica, Ef o módulo de elasticidade longitudinal da fibra (GPa)
-% Em o módulo de elasticidade da matriz (GPa) e a saída Xt representa
-% a tensão ultima da lâmina obtida pela RNA mista (GPa) e Xt_th é
-% a tensão ultima da lamina obtida pela regra das misturas (GPa) 
+% The entries are: 
+%    - Tensile strength of the fiber (Tf)
+%    - Volumetric fraction of fiber (Vf)
+%    - Longitudinal elasticity modulus of the fiber (Ef), in GPa
+%    - Elasticity modulus of the matrix (Em), in GPa
+
+% The outputs are:  
+%    - Ultimate longitudinal tensile strength of the laminae (Xt), in GPa, from Mix-ANN
+%    - Ultimate longitudinal tensile strength of the laminae (Xt_th), in GPa, from the Rule of Mixture
+
+% Mix-ANN - Mixed artificial neural network
+
+% For more information see this webpage:
+% COLOCAR LINK!
+
 
 if Tf>7.5
-    warndlg('O valor de E deve ser inferior a 7.5','Erro em Tf');
+    warndlg('The value of Tf must be less than 7.5','Erro em Tf');
 end
 if Ef>600
-    warndlg('O valor de E deve ser inferior a 600','Erro em Ef');
+    warndlg('The value of Ef must be less than 600','Erro em Ef');
 end
 if Em>6
-    warndlg('O valor de Em deve ser inferior a 6','Erro no Em');
+    warndlg('The value of Em must be less than 6','Erro no Em');
 end
-if Vf>1
-    warndlg('O valor de Vf deve ser inferior a 1','Erro em Vf');
+if Vf>0.75
+    warndlg('The value of Vf must be less than 0.75','Erro em Vf');
     return;
 end
 
 
-%%%%% Function Xt = f(Tf, Vf, Ef, Em) 
-%%%%% %% Data Normalization
+%%%%% Function Xt = f(Tf, Vf, Ef, Em)
+%% Data Normalization
 Tf_nor = Tf/7.5;
 Ef_nor = Ef/600;
 Em_nor = Em/6;

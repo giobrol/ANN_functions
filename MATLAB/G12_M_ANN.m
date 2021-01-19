@@ -1,20 +1,29 @@
 function [G12, G12HT] = G12_M_ANN(Vf, Gf, Gm)
-%This Function Calculate G12 from an composite laminae
+% This function compute G12 of a unidirectional composite
 %
-% Na entrada, Vf é a fracao volumetrica, Gf o módulo de cisalhamento
-% da fibra (GPa) e Gm o módulo de cisalhamento da matriz (GPa)
-% e a saída G12 representa modulo de cisalhamento 12 da lâmina
-% obtida pela RNA mista (GPa) e G12HT representa modulo de
-% cisalhamento 12 da lamina obtido pelo modelo de Halpin-Tsai (GPa) 
+% The entries are: 
+%    - Volumetric fraction of fiber (Vf)
+%    - Shear modulus of the fiber (Gf), in GPa
+%    - Shear modulus of the matrix (Gm), in GPa
+
+% The outputs are:  
+%    - Shear modulus modulus of the laminae (G12), in GPa, from Mix-ANN
+%    - Shear modulus modulus of the laminae (G12HT), in GPa, from HT
+
+% Mix-ANN - Mixed artificial neural network
+% HT - Halpin-Tsai model
+
+% For more information see this webpage:
+% COLOCAR LINK!
 
 if Gf>35
-    warndlg('O valor de Gf deve ser inferior a 35','Erro em Gf');
+    warndlg('The value of Gf must be less than 35','Warning!');
 end
 if Gm>5
-    warndlg('O valor de Gm deve ser inferior a 5','Erro no Gm');
+    warndlg('The value of Gm must be less than 5','Warning!');
 end
-if Vf>1
-    warndlg('O valor de Vf deve ser inferior a 1','Erro em Vf');
+if Vf>0.75
+    warndlg('The value of Vf must be less than 0.75','Warning!');
     return;
 end
 

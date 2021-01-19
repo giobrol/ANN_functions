@@ -1,21 +1,29 @@
 function [E2, E2HT] = E2_M_ANN(Vf, Ef, Em)
-% This Function Calculate E2 from an composite laminae
+% This function compute E2 of a unidirectional composite
 %
-% Na entrada, Vf é a fracao volumetrica, Ef o módulo de elasticidade 
-% transversal da fibra (GPa) e Em o módulo de elasticidade da matriz
-% (GPa) e a saída E2 representa modulo de elasticiade na direção 2 da
-% lâmina obtida pela RNA mista (GPa) e E2HT representa modulo de
-% elasticidade na direção 2 da lamina obtido pelo modelo de
-% Halpin-Tsai (GPa) 
+% The entries are: 
+%    - Volumetric fraction of fiber (Vf)
+%    - Longitudinal elasticity modulus of the fiber (Ef), in GPa
+%    - Elastic modulus of the matrix (Em), in GPa
+
+% The outputs are:
+%    - Transverse elasticity modulus of the laminae (E2), in GPa, from Mix-ANN
+%    - Transverse elasticity modulus of the laminae (E2HT), in GPa, from HT
+
+% Mix-ANN - Mixed artificial neural network
+% HT - Halpin-Tsai model
+
+% For more information see this webpage:
+% COLOCAR LINK!
 
 if Ef>90
-    warndlg('O valor de Ef deve ser inferior a 90','Erro em Ef');
+    warndlg('The value of Ef must be less than 90','Warning!');
 end
 if Em>5
-    warndlg('O valor de Em deve ser inferior a 5','Erro no Em');
+    warndlg('The value of Em must be less than 5','Warning!');
 end
-if Vf>1
-    warndlg('O valor de Vf deve ser inferior a 1','Erro em Vf');
+if Vf>0.75
+    warndlg('The value of Vf must be less than 0.75','Warning!');
     return;
 end
 
@@ -25,7 +33,7 @@ Em_nor = Em/5;
 
 %% Halpin-Tsai Value
 N = (((Ef./Em)-1)./((Ef./Em)+2));
-E2HT = ((1+(2.*N.*Vf))./(1-(N.*Vf))).*Em; % Show Halpin-Tsai G12 value
+E2HT = ((1+(2.*N.*Vf))./(1-(N.*Vf))).*Em; % Show Halpin-Tsai E2 value
 
 %% ANN Mixed Weights
 W = [-0.480055854590517 0.216883800492648 0.659566386992146 -0.317921266087999;...

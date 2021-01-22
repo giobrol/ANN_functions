@@ -14,7 +14,7 @@ function [G12, G12HT] = G12_M_ANN(Vf, Gf, Gm)
 % HT - Halpin-Tsai model
 
 % For more information see this webpage:
-% COLOCAR LINK!
+% https://github.com/giobrol/ANN_functions
 
 if Gf>35
     warndlg('The value of Gf must be less than 35','Warning!');

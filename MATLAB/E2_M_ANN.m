@@ -14,7 +14,7 @@ function [E2, E2HT] = E2_M_ANN(Vf, Ef, Em)
 % HT - Halpin-Tsai model
 
 % For more information see this webpage:
-% COLOCAR LINK!
+% https://github.com/giobrol/ANN_functions
 
 if Ef>90
     warndlg('The value of Ef must be less than 90','Warning!');

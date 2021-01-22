@@ -1,5 +1,8 @@
 
+[![doi](https://img.shields.io/badge/doi-10.1016%2Fj.compositesb.2019.107171-brightgreen.svg)](https://doi.org/10.1016/j.compositesb.2019.107171)
+
 ## Description
+
 This project aims to provide functions created to calculate some mechanical properties of unidirectional composites. These functions were created using artificial neural networks (__ANN__) based on data collected from the literature. For more details see the following articles:
 
 https://doi.org/10.1016/j.compositesb.2019.107171 (_G<sub>12</sub>_ and _X<sub>t</sub>_)
@@ -21,3 +24,6 @@ So one gets:
 G12 = 7.2867
 ```
 This is the _G<sub>12</sub>_ value of the unidirectional composite, in Gigapascal (GPa).
+
+Update: the current release is version 1.0, a new release is coming soon.
+

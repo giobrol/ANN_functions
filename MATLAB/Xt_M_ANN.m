@@ -14,8 +14,7 @@ function [Xt, Xt_th] = Xt_M_ANN(Tf, Vf, Ef, Em)
 % Mix-ANN - Mixed artificial neural network
 
 % For more information see this webpage:
-% COLOCAR LINK!
-
+% https://github.com/giobrol/ANN_functions
 
 if Tf>7.5
     warndlg('The value of Tf must be less than 7.5','Erro em Tf');

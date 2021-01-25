@@ -25,5 +25,5 @@ G12 = 7.2867
 ```
 This is the _G<sub>12</sub>_ value of the unidirectional composite, in Gigapascal (GPa).
 
-Update: the current release is version 1.0, a new release is coming soon.
+Update: the current release is version 1.0, a new release with new functions is coming soon.
 

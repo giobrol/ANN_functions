@@ -17,16 +17,16 @@ function [Xt, Xt_th] = Xt_M_ANN(Tf, Vf, Ef, Em)
 % https://github.com/giobrol/ANN_functions
 
 if Tf>7.5
-    warndlg('The value of Tf must be less than 7.5','Erro em Tf');
+    warndlg('The value of Tf must be less than 7.5','Warning!');
 end
 if Ef>600
-    warndlg('The value of Ef must be less than 600','Erro em Ef');
+    warndlg('The value of Ef must be less than 600','Warning!');
 end
 if Em>6
-    warndlg('The value of Em must be less than 6','Erro no Em');
+    warndlg('The value of Em must be less than 6','Warning!');
 end
 if Vf>0.75
-    warndlg('The value of Vf must be less than 0.75','Erro em Vf');
+    warndlg('The value of Vf must be less than 0.75','Warning!');
     return;
 end
 
